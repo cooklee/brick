@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Logowanie</h2>
+    <h3>{{ message }}</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nazwa użytkownika</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Hasło</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Zaloguj</button>
+    </form>
+    <a href="{% url 'accounts:register' %}">Zarejestruj się</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Profil</h3>
+    <p>Witaj, {{ user.username }}</p>
+    <p>Twój adres email to: {{ user.email }}</p>
+    <a href="{% url 'accounts:change_password' %}">Zmień hasło</a>
+    <a href="{% url 'accounts:delete_account' %}">Usuń konto</a>
+    <a href="{% url 'cart' %}">Koszyk</a>
+{#    <a href="{% url 'orders' %}">Zamówienia</a>#}
+    <a href="{% url 'accounts:logout' %}">Wyloguj</a>
+{% endblock %}

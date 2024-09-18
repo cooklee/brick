@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'base.css' %}" rel="stylesheet">
+    {% block additional_css %}
+    {% endblock %}
+
+</head>
+
+<body>
+<div class="container column">
+    <div class="top_links">
+        {% include 'users_buttons.html' %}
+    </div>
+    <div class="header">
+        <h1>Kup Pan Cegłe </h1>
+
+    </div>
+    <div class="container row">
+        <div class="column left"></div>
+        <div class="column middle">
+            <div>
+                <ul class="navbar">
+                    <li><a href="{% url 'book_list' %}">Książki</a></li>
+                    <li><a href="news.asp">Roman</a></li>
+                    <li><a href="contact.asp">Contact</a></li>
+                    <li><a href="about.asp">About</a></li>
+                </ul>
+            </div>
+            <div>
+                {% block content %}
+                    <div class="books warp">
+                        {% for book in books %}
+                            <div class="book size_3">
+                                <h2>{{ book.title }}</h2>
+                                <p>{{ book.author }}</p>
+                                <p>{{ book.price }}</p>
+                            <p>
+                                <a href="{% url 'book_detail' book.id%}">szczegóły</a>
+                                <a href="{% url 'add_to_cart' book.id %}">Dodaj do koszyka</a>
+                            </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="column right">
+            {% include 'messages.html' %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

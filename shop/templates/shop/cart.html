@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Twój koszyk</h3>
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Ilość</th>
+            <th>Usuń</th>
+        </tr>
+        {% for item in user.cart.items.all %}
+            <tr>
+                <td>{{ item.book.title }}</td>
+                <td>x</td>
+                <td>{{ item.quantity }}</td>
+                <td><a href="">Usuń</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{#    <a href="{% url 'checkout' %}">Zamów</a>#}
+{% endblock %}s

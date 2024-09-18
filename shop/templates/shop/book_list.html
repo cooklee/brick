@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block additional_css %}
+    <link href="{% static 'form.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block content%}
+     <form class="registration-form" >
+        <p><input type="text" id="title" name="title"  placeholder="Tytuł"></p>
+        <p><input type="text" id="author" name="author"  placeholder="Autor"></p>
+        <input type="submit" value="Szukaj">
+    </form>
+    <div class="books_list">
+        {% for book in books %}
+            <div class="book">
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.author }}</p>
+                <p>{{ book.price }}</p>
+                <a href="{% url 'add_to_cart' book.id %}">Dodaj do koszyka</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

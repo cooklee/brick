@@ -1,0 +1,10 @@
+<a href="{% url 'cart' %}" class="user_button">
+    <button tabindex="0" aria-label="Koszyk" class="user_button">
+        {% include 'svgs/cart.html' %}
+        <span>Koszyk</span></button>
+</a>
+<a href="{% url 'accounts:profile' %}" class="user_button">
+    <button tabindex="0" aria-label="Profil" class="user_button">
+        {% include 'svgs/user.html' %}
+        <span>Profil</span></button>
+</a>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block additional_css %}
+    <link href="{% static 'form.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+
+    <form class="registration-form" action="{% url 'accounts:register' %}" method="POST">
+        {% csrf_token %}
+
+        <h2>Rejestracja</h2>
+
+        <p><input type="text" id="username" name="username" required placeholder="Nazwa użytkownika"></p>
+        <p><input type="text" id="first_name" name="first_name" required placeholder="imię"></p>
+        <p><input type="text" id="last_name" name="last_name" required placeholder="nazwisko"></p>
+        <p><input type="text" id="email" name="email" required placeholder="email"></p>
+        <p><input type="password" id="password" name="password" required placeholder="hasło"></p>
+        <p><input type="password" id="confirm_password" name="confirm_password" required placeholder="Powtórz hasło">
+        </p>
+
+        <input type="submit" value="Zarejestruj się">
+
+    </form>
+    <a href="{% url 'accounts:login' %}">Zaloguj</a>
+{% endblock %}
